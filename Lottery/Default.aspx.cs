@@ -17,13 +17,6 @@ namespace Lottery
         {
             this.id = id;
             this.name = name;
-            DefineWinner();
-        }
-
-        public void DefineWinner()
-        {
-            Random rnd = new Random();
-            this.winner = Convert.ToBoolean(rnd.Next(0, 2));
         }
     }
 
@@ -48,11 +41,18 @@ namespace Lottery
             members.Add(member_6);
         }
 
+        Random rnd = new Random();
+
+        public bool DefineWinner()
+        {
+            return Convert.ToBoolean(rnd.Next(0, 2));
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             AddMembersToList();
             foreach (Person member in members)
-                member.DefineWinner();
+                member.winner = DefineWinner();
 
         }
     }
