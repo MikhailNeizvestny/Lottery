@@ -16,5 +16,10 @@ namespace Lottery
             this.id = id;
             this.name = name;
         }
+
+        public void ChangeWinner()
+        {
+            this.winner = !this.winner;
+        }
     }
 }

@@ -14,9 +14,8 @@
     <script type ="text/javascript">
         $(document).ready(function () {
             $('.member').click(function () {
-                var click = $(this);
+                var clickedClass = $(this);
                 var memId = $(this).find('.id').html();
-                alert(memId);
                 $.ajax({
                     url: 'MembersService.asmx/ChangeWinner',
                     data: { memberId: memId },
@@ -24,7 +23,7 @@
                     method: "post",
                     success: function(data)
                     {
-                        click.find('.winner').html(data.winner);
+                        clickedClass.find('.winner').html(data.winner);
                     },
                     error: function (err) {
                         alert(err);

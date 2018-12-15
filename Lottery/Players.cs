@@ -7,26 +7,23 @@ namespace Lottery
 {
     public static class Players
     {
-        private static List<Person> members = null;
-        public static List<Person> Members
+        public static List<Person> members;
+
+        public static void FillList()
         {
-            get
-            {
-                members = new List<Person>();
-                Person person = new Person(1, "Иванов Иван Иванович");
-                members.Add(person);
-                person = new Person(2, "Петров Петр Петрович");
-                members.Add(person);
-                person = new Person(3, "Петренко Татьяна Ивановна");
-                members.Add(person);
-                person = new Person(4, "Красильников Лазарь Николаевич");
-                members.Add(person);
-                person = new Person(5, "Ершов Евгений Федосеевич");
-                members.Add(person);
-                person = new Person(6, "Савин Олег Лукьевич");
-                members.Add(person);
-                return members;
-            }
+            members = new List<Person>();
+            Person person = new Person(1, "Иванов Иван Иванович");
+            members.Add(person);
+            person = new Person(2, "Петров Петр Петрович");
+            members.Add(person);
+            person = new Person(3, "Петренко Татьяна Ивановна");
+            members.Add(person);
+            person = new Person(4, "Красильников Лазарь Николаевич");
+            members.Add(person);
+            person = new Person(5, "Ершов Евгений Федосеевич");
+            members.Add(person);
+            person = new Person(6, "Савин Олег Лукьевич");
+            members.Add(person);
         }
     }
 }

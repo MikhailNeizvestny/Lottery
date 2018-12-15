@@ -21,17 +21,13 @@ namespace Lottery
         [WebMethod]
         public void ChangeWinner(int memberId)
         {
-            List<Person> members = Players.Members;
+            List<Person> members = Players.members;
             Person member = null;
-            foreach (Person prs in members)
+            foreach (Person prs in Players.members)
             {
                 if (prs.id == memberId)
                 {
-                    if (prs.winner == true)
-                        prs.winner = false;
-                    else
-                        prs.winner = true;
-                    //prs.winner = !prs.winner;
+                    prs.ChangeWinner();
                     member = prs;
                     break;
                 }
