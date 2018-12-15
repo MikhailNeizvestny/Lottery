@@ -11,49 +11,46 @@
         tr:hover {background: grey; }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type ="text/javascript">
+        $(document).ready(function () {
+            $('.member').click(function () {
+                var click = $(this);
+                var memId = $(this).find('.id').html();
+                alert(memId);
+                $.ajax({
+                    url: 'MembersService.asmx/ChangeWinner',
+                    data: { memberId: memId },
+                    dataType: "json",
+                    method: "post",
+                    success: function(data)
+                    {
+                        click.find('.winner').html(data.winner);
+                    },
+                    error: function (err) {
+                        alert(err);
+                    }
+                })
+            });
+        });
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
             <asp:Label ID ="output" runat ="server"></asp:Label>
-            <table border="1">
+            <table border="1" id ="tableid">
                 <asp:Repeater id = "repMembers" runat = "server">
                     <ItemTemplate>
-                        <tr>
-                            <th><%# Eval("id") %></th>
-                            <th><%# Eval("name") %></th>
-                            <th><%# Eval("winner") %></th>
+                        <tr class ="member">
+                            <th class ="id"><%# Eval("id") %></th>
+                            <th class ="name"><%# Eval("name") %></th>
+                            <th class ="winner"><%# Eval("winner") %></th>
                         </tr>
                     </ItemTemplate>
                 </asp:Repeater>
             </table>
-            <%
-                /*int count = members.Count;
-                for (int i = 0; i < count; i++)
-                {
-                    Response.Write(String.Format("<tr id=\"{0}\">", i));
-                    Response.Write(String.Format("<th>{0}</th>", members[i].id));
-                    Response.Write(String.Format("<th>{0}</th>", members[i].name));
-                    Response.Write(String.Format("<th>{0}</th>", members[i].winner));
-                    Response.Write("</tr>");
-                }*/
-            %>
             
         </div>
-        <script type ="text/javascript">
-            $('#3').on('click', function () {
-                <%
-            members[3].id = 10;
-                %>
-            });
-        </script>
-        <%-- <script type ="text/javascript">
-            $(document).ready(function () {
-                setInterval(function () {
-                    $('#output').html(new Date($.now()));
-                }, 1000)
-            });
-        </script> --%>
     </form>
 </body>
 </html>

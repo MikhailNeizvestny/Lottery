@@ -9,7 +9,7 @@ namespace Lottery
 {
     public partial class Default : System.Web.UI.Page
     {
-        public List<Person> members = new List<Person>();
+        /*public List<Person> members = new List<Person>();
 
         Person member_1 = new Person(1, "Иванов Иван Иванович");
         Person member_2 = new Person(2, "Петров Петр Петрович");
@@ -26,7 +26,7 @@ namespace Lottery
             members.Add(member_4);
             members.Add(member_5);
             members.Add(member_6);
-        }
+        }*/
 
         Random rnd = new Random();
 
@@ -37,10 +37,10 @@ namespace Lottery
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            AddMembersToList();
-            foreach (Person member in members)
+            List<Person> listMembers = Players.Members;
+            foreach (Person member in listMembers)
                 member.winner = DefineWinner();
-            repMembers.DataSource = members;
+            repMembers.DataSource = listMembers;
             repMembers.DataBind();
 
         }
