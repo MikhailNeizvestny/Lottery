@@ -7,19 +7,6 @@ using System.Web.UI.WebControls;
 
 namespace Lottery
 {
-    public class Person
-    {
-        public int id;
-        public string name;
-        public bool winner;
-
-        public Person(int id, string name)
-        {
-            this.id = id;
-            this.name = name;
-        }
-    }
-
     public partial class Default : System.Web.UI.Page
     {
         public List<Person> members = new List<Person>();
@@ -53,6 +40,8 @@ namespace Lottery
             AddMembersToList();
             foreach (Person member in members)
                 member.winner = DefineWinner();
+            repMembers.DataSource = members;
+            repMembers.DataBind();
 
         }
     }
