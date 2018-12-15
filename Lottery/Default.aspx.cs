@@ -22,8 +22,8 @@ namespace Lottery
             Players.FillList();
             foreach (Person member in Players.members)
                 member.winner = DefineWinner();
-            repMembers.DataSource = Players.members;
-            repMembers.DataBind();
+            repMembers.DataSource = Players.members; 
+            repMembers.DataBind();//отправляем данные для заполнения таблицы
 
         }
     }

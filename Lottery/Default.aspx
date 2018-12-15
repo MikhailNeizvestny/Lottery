@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>Лотерея</title>
     <style type="text/css">
         tr {cursor:pointer;}
         tr:hover {background: grey; }
@@ -34,10 +34,17 @@
     </script>
 </head>
 <body>
+    <h1>Лотерея</h1>
+    <h2>Участники</h2>
     <form id="form1" runat="server">
         <div>
             <asp:Label ID ="output" runat ="server"></asp:Label>
             <table border="1" id ="tableid">
+                <tr>
+                    <th>№</th>
+                    <th>ФИО участника</th>
+                    <th>Выигрыш</th>
+                </tr>
                 <asp:Repeater id = "repMembers" runat = "server">
                     <ItemTemplate>
                         <tr class ="member">

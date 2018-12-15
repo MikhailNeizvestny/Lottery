@@ -21,13 +21,14 @@ namespace Lottery
         [WebMethod]
         public void ChangeWinner(int memberId)
         {
+            //находим нужного игрока по id
             List<Person> members = Players.members;
             Person member = null;
             foreach (Person prs in Players.members)
             {
                 if (prs.id == memberId)
                 {
-                    prs.ChangeWinner();
+                    prs.ChangeWinner();// меняем флаг выигрыша
                     member = prs;
                     break;
                 }
